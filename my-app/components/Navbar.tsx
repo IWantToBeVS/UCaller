@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
     return (
@@ -11,7 +12,9 @@ const Navbar = () => {
                 <p className="text-[26px] font-extrabold text-white max-sm:hidden">Yoom</p>
             </Link>
             <div className="flex-between gap-5">
-                {/* Clerk - User Management */}
+                <SignedIn>
+                    <UserButton></UserButton>
+                </SignedIn>
                 <MobileNav></MobileNav>
             </div>
         </nav>
